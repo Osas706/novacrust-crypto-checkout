@@ -16,7 +16,11 @@ export const step2Schema = z.object({
 
 export const step3Schema = z.object({
   receiptEmail: z.string().min(3,{ message: "Enter receipt email" }),
-  receiptPhone: z.string().min(3,{ message: "Enter receipt phone" }),
+  receiptPhone: z
+    .string()
+    .min(10, { message: "Phone number must be at least 10 digits" })
+    .max(15, { message: "Phone number must be at most 15 digits" })
+    .transform((val) => val.replace(/[^\d+]/g, ""))
 });
 
 export const step4Schema = z.object({ });
