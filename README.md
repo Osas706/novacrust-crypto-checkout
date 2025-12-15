@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# NovaCrust Crypto Checkout
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based crypto-to-cash checkout widget built with Vite, TypeScript, and Tailwind CSS. This project demonstrates a multi-step checkout flow for converting cryptocurrency to fiat currency.
 
-Currently, two official plugins are available:
+## 🚀 Setup Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## React Compiler
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Installation
 
-## Expanding the ESLint configuration
+1.  Clone the repository:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    ```bash
+    git clone https://github.com/Osas706/novacrust-crypto-checkout
+    cd novacrust-crypto-checkout
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  Install dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  Start the development server:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ```bash
+    npm run dev
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4.  Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠 Tech Stack
+
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: TypeScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **UI Components**: Custom components + Shadcn UI Components
+
+## 💡 Assumptions & Trade-offs
+
+During the development of this prototype, the following assumptions and trade-offs were made:
+
+### 1. Mock Data & No Backend
+
+- **Assumption**: This is a frontend-only prototype/demo.
+- **Trade-off**: There is no actual blockchain interaction or backend server.
+  - Exchange rates (e.g., ETH to NGN) are hardcoded or 1:1 for simplicity.
+  - "Success" states are simulated immediately without real network confirmation.
+
+### 2. State Management (Zustand)
+
+- **Assumption**: The checkout flow is contained within a single session.
+  - **Pros**: extremely lightweight and fast setup.
+  - **Cons**: Reloading the page resets the checkout progress (Step 1).
+
+### 3. Navigation
+
+- **Assumption**: The widget is designed to be embedded or act as a standalone modal.
+  - **Cons**: The browser's "Back" button may not work as expected (it will leave the site rather than go to the previous step). A custom "Back" button is implemented in the UI to handle this.
+
+### 4. Mobile-First Widget Design
+
+- **Assumption**: The primary use case is mobile or a contained widget on desktop.
+- **Design**: The main `App` layout hardcodes a mobile-sized container (`max-w-[440px]`) centered on the screen to simulate the mobile experience on desktop screens.
