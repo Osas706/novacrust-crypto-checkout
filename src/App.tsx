@@ -50,7 +50,7 @@ function App() {
               <div className="max-w-full flex items-center justify-between">
                 <MoveLeft
                   className="cursor-pointer"
-                onClick={() => setStep(currentStep - 1)}
+                  onClick={() => setStep(currentStep - 1)}
                 />
 
                 <p className="font-medium text-lg text-gray-600">
@@ -72,11 +72,23 @@ function App() {
           {/* Single content */}
           <div className=" flex-1 h-full">
             {activeTab === "crypto-cash" && <CryptoCash />}
+
             {activeTab === "cash-crypto" && (
-              <div className="h-full">cash-crypto</div>
+              <div className="mt-10 flex flex-col gap-1 items-center justify-center">
+                <p className="text-2xl text-teal-900 uppercase">Coming soon!</p>
+                <p className="text-gray-500 text-sm">
+                  Cash to Crypto is almost here.
+                </p>
+              </div>
             )}
+            
             {activeTab === "crypto-flat-loan" && (
-              <div className="h-full">crypto-flat-loan</div>
+              <div className="mt-10 flex flex-col gap-1 items-center justify-center">
+                <p className="text-2xl text-teal-900 uppercase">Coming soon!</p>
+                <p className="text-gray-500 text-sm">
+                  Crypto to flat loan is almost here.
+                </p>
+              </div>
             )}
           </div>
         </div>
