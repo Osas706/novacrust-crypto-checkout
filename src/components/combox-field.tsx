@@ -19,10 +19,10 @@ export interface ComboboxOption {
 }
 
 interface ComboboxFieldProps {
-  options: ComboboxOption[]          // array of options
-  value: string                      // controlled value
-  onChange: (value: string) => void  // value change handler
-  placeholder?: string               // placeholder text
+  options: ComboboxOption[]          
+  value: string                      
+  onChange: (value: string) => void  
+  placeholder?: string      
 }
 
 export function ComboboxField({

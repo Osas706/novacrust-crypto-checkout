@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="min-h-screen w-full bg-black/80 flex items-center justify-center">
-      <div className="max-w-[440px] min-h-[520px] w-full h-full bg-white rounded-2xl border border-slate-300 p-6">
+      <div className="max-w-sm md:max-w-[440px] min-h-[520px] w-full h-full bg-white rounded-2xl border border-slate-300 p-6">
         <div className="w-full flex flex-col h-full space-y-5">
           {/* Tabs header */}
           <Tabs
