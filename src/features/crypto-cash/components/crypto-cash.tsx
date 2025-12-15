@@ -27,26 +27,26 @@ import { AlertCircle, Check, Copy } from "lucide-react";
 
 // dummy data
 const payTypes = [
-  { value: "eth", label: "ETH", icon: "../src/assets/payType/eth.png" },
+  { value: "eth", label: "ETH", icon: "/payType/eth.png" },
   {
     value: "usdt-ton",
     label: "USDT-TON",
-    icon: "../src/assets/payType/usdt-ton.png",
+    icon: "/payType/usdt-ton.png",
   },
   {
     value: "usdt-bnb",
     label: "USDT-BNB",
-    icon: "../src/assets/payType/usdt-bnb.png",
+    icon: "/payType/usdt-bnb.png",
   },
   {
     value: "usdt-celo",
     label: "USDT-CELO",
-    icon: "../src/assets/payType/usdt-celo.png",
+    icon: "/payType/usdt-celo.png",
   },
 ];
 
 const currencies = [
-  { value: "ngn", label: "NGN", icon: "../src/assets/ngn.png" },
+  { value: "ngn", label: "NGN", icon: "/ngn.png" },
 ];
 
 const ethAddress = "02345678901234567890";
