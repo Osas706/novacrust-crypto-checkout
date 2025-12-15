@@ -54,7 +54,7 @@ export function ComboboxField({
         >
            <div className="flex items-center gap-2">
             {displayIcon && (
-              <img src={displayIcon} alt={displayLabel} className="w-5 h-5 rounded-full" />
+              <img src={displayIcon} alt={displayLabel} className="w-5 h-5 rounded-full bg-white" />
             )}
             <span>{displayLabel}</span>
           </div>
